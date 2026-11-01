@@ -1,4 +1,4 @@
-import { bindings, defineConfig } from "cf/config";
+import { bindings, defineConfig, triggers } from "cf/config";
 
 export default defineConfig({
 	worker: {
@@ -8,6 +8,8 @@ export default defineConfig({
 		compatibilityFlags: ["nodejs_compat"],
 		workersDev: true,
 		domains: ["crosscredit.haltcase.dev"],
+		// This route takes precedence over the zone-wide report-visit Worker.
+		triggers: [triggers.fetch({ pattern: "crosscredit.haltcase.dev/*", zone: "haltcase.dev" })],
 		env: {
 			TMDB_READ_ACCESS_TOKEN: bindings.secret()
 		}

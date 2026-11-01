@@ -105,8 +105,9 @@ credentials. It does not validate account quotas or production secrets.
 
 1. Create a Cloudflare account and keep Workers on the Free plan.
 2. Sign in with `pnpm exec cf auth login`.
-3. For your own deployment, change `worker.name` and remove or replace `worker.domains` in
-   `cloudflare.config.ts`. The checked-in domain is `crosscredit.haltcase.dev`.
+3. For your own deployment, change `worker.name` and remove or replace `worker.domains` and
+   `worker.triggers` in `cloudflare.config.ts`. The checked-in domain is `crosscredit.haltcase.dev`;
+   its explicit route takes precedence over the existing zone-wide redirect Worker.
 4. Create an ignored `.env.production.local` file containing only
    `TMDB_READ_ACCESS_TOKEN=your-token`.
 5. Run `pnpm deploy --secrets-file .env.production.local` to upload the token as a Worker secret
