@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.output/
+.tanstack/
+.vite/
+.env
+.env.*
+!.env.example
+*.local
+coverage/
+*.tsbuildinfo
+
+.cloudflare/
+.dev.vars
+.dev.vars.*

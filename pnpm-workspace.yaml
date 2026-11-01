@@ -1,0 +1,20 @@
+packages:
+  - .
+
+minimumReleaseAgeExclude:
+  - "@haltcase/style@9.0.0-canary.1"
+
+catalog:
+  vite: "npm:@voidzero-dev/vite-plus-core@1.4.0"
+  vite-plus: 1.4.0
+
+overrides:
+  "vite@*": "catalog:"
+
+# The aliased core uses the Vite+ release number but implements the Vite 8 API.
+peerDependencyRules:
+  allowedVersions:
+    vite: "*"
+
+allowBuilds:
+  workerd: true

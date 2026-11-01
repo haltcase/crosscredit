@@ -1,0 +1,52 @@
+{
+	"name": "crosscredit",
+	"private": true,
+	"license": "MIT",
+	"type": "module",
+	"scripts": {
+		"build": "vp build",
+		"check": "vp check",
+		"deploy": "cf deploy",
+		"deploy:check": "cf deploy --dry-run",
+		"dev": "vp dev",
+		"fmt": "vp check --fix",
+		"preview": "vp preview",
+		"test": "vp test run",
+		"typecheck": "vp check --no-fmt --no-lint"
+	},
+	"dependencies": {
+		"@tanstack/react-query": "^5.104.5",
+		"@tanstack/react-router": "^1.170.46",
+		"@tanstack/react-router-ssr-query": "^1.167.3",
+		"@tanstack/react-start": "^1.169.4",
+		"react": "^19.3.1",
+		"react-dom": "^19.3.1",
+		"zod": "^4.6.7"
+	},
+	"devDependencies": {
+		"@cloudflare/vite-plugin": "2.0.0-beta.v.8",
+		"@haltcase/style": "9.0.0-canary.1",
+		"@tanstack/eslint-plugin-router": "^1.162.0",
+		"@types/node": "^24.0.0",
+		"@types/react": "^19.0.0",
+		"@types/react-dom": "^19.0.0",
+		"@vitejs/plugin-react": "^6.1.2",
+		"cf": "1.0.0-beta.26",
+		"oxlint-tsgolint": "^7.0.2005",
+		"typescript": "npm:@typescript/typescript6@^6.0.2",
+		"typescript-7": "npm:typescript@^7.0.2",
+		"vite": "catalog:",
+		"vite-plus": "catalog:"
+	},
+	"devEngines": {
+		"packageManager": {
+			"name": "pnpm",
+			"version": "12.16.1",
+			"onFail": "download"
+		}
+	},
+	"engines": {
+		"node": ">=22.18.0"
+	},
+	"packageManager": "pnpm@12.16.1"
+}
