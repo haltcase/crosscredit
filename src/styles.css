@@ -587,6 +587,15 @@ footer {
 		font-size: 20px;
 	}
 }
+@media (width > 640px) {
+	.picker.right .selected-title {
+		flex-direction: row-reverse;
+	}
+	.picker.right .picker-label,
+	.picker.right .selected-details {
+		text-align: right;
+	}
+}
 @media (max-width: 640px) {
 	.app-shell {
 		padding: 0 20px;
