@@ -81,6 +81,9 @@ function Home() {
 	const crew = intersectCredits(leftCredits.data ?? [], rightCredits.data ?? [], "crew");
 	const all = intersectCredits(leftCredits.data ?? [], rightCredits.data ?? [], "all");
 	const matches = { cast, crew, all }[filter];
+	if (ready && filter !== "all" && matches.length === 0) {
+		setFilter("all");
+	}
 
 	function choose(side: "left" | "right", title: Title | null) {
 		setCopyState("Copy link");
@@ -133,7 +136,6 @@ function Home() {
 					</svg>
 					crosscredit<span className="wordmark-dot">.</span>
 				</a>
-				<span className="header-note">FOR THE “WAIT, IS THAT…?” MOMENTS</span>
 			</header>
 			<main>
 				<div
@@ -249,7 +251,6 @@ function Home() {
 											{tab.label} <span>{tab.count}</span>
 										</button>
 									))}
-									<span className="filter-note">Yes, even the one-episode appearances.</span>
 								</div>
 								{matches.length === 0 ? (
 									<div className="status-panel">
@@ -270,7 +271,7 @@ function Home() {
 								) : (
 									<div className="people-table">
 										<div className="people-header">
-											<span>THE FAMILIAR FACE</span>
+											<span>CREDIT</span>
 											<span>{leftTitle.data?.name ?? "First title"}</span>
 											<span>{rightTitle.data?.name ?? "Second title"}</span>
 										</div>
