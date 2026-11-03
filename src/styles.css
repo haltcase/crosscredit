@@ -88,6 +88,23 @@ button {
 	letter-spacing: 1.7px;
 	color: var(--muted);
 }
+/* Clip the intro from below as the rest of the page slides over its space. */
+.intro-collapse {
+	display: grid;
+	grid-template-rows: 1fr;
+	padding-top: 0;
+	transition:
+		grid-template-rows 280ms cubic-bezier(0.22, 1, 0.36, 1),
+		padding-top 280ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.intro-collapse.is-collapsed {
+	grid-template-rows: 0fr;
+	padding-top: 24px;
+}
+.intro-clip {
+	min-height: 0;
+	overflow: hidden;
+}
 .intro {
 	padding: 64px 0 39px;
 	position: relative;

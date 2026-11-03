@@ -72,6 +72,7 @@ function Home() {
 	const rightCredits = useQuery(creditsOptions(right));
 	const [filter, setFilter] = useState<Filter>("cast");
 	const [copyState, setCopyState] = useState("Copy link");
+	const hasSelection = left !== null || right !== null;
 	const bothSelected = left !== null && right !== null;
 	const loading = bothSelected && (leftCredits.isPending || rightCredits.isPending);
 	const error = bothSelected ? (leftCredits.error ?? rightCredits.error) : null;
@@ -135,14 +136,20 @@ function Home() {
 				<span className="header-note">FOR THE “WAIT, IS THAT…?” MOMENTS</span>
 			</header>
 			<main>
-				<section className="intro" aria-labelledby="headline">
-					<h1 id="headline">
-						Like six degrees...
-						<br />
-						<span>but it&apos;s only one</span>
-					</h1>
-					<p>Pick two movies or shows to see the people involved in both.</p>
-				</section>
+				<div
+					className={`intro-collapse${hasSelection ? " is-collapsed" : ""}`}
+					aria-hidden={hasSelection}>
+					<div className="intro-clip">
+						<section className="intro" aria-labelledby="headline">
+							<h1 id="headline">
+								Like six degrees...
+								<br />
+								<span>but it&apos;s only one</span>
+							</h1>
+							<p>Pick two movies or shows to see the people involved in both.</p>
+						</section>
+					</div>
+				</div>
 
 				{configuration.data?.configured === false && (
 					<aside className="setup-note" role="status">
